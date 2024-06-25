@@ -77,4 +77,34 @@ public class CalcTests {
     void t12() {
         assertThat(Calc.run("20 + 10 + 5 * 2")).isEqualTo(40);
     }
+
+    @Test
+    @DisplayName("(10 + 20)")   // 이름임. 별상관 ㄴ
+    void t13() {
+        assertThat(Calc.run("(10 + 20)")).isEqualTo(30);
+    }
+
+    @Test
+    @DisplayName("((10 + 20))")   // 이름임. 별상관 ㄴ
+    void t14() {
+        assertThat(Calc.run("((10 + 20))")).isEqualTo(30);
+    }
+
+    @Test
+    @DisplayName("(((10 + 20)))")   // 이름임. 별상관 ㄴ
+    void t15() {
+        assertThat(Calc.run("(((10 + 20)))")).isEqualTo(30);
+    }
+
+    @Test
+    @DisplayName("(20 + 20) + 20")   // 이름임. 별상관 ㄴ
+    void t16() {
+        assertThat(Calc.run("(20 + 20) + 20")).isEqualTo(60);
+    }
+
+    @Test
+    @DisplayName("(10 + 20) * 3")   // 이름임. 별상관 ㄴ
+    void t17() {
+        assertThat(Calc.run("(10 + 20) * 3")).isEqualTo(90);
+    }
 }

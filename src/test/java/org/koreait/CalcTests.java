@@ -59,4 +59,22 @@ public class CalcTests {
     void t9() {
         assertThat(Calc.run("10 - 10 - 10 - 10 + 10 + 10 - 10")).isEqualTo(-10);
     }
+
+    @Test
+    @DisplayName("10 * 10 * 10")   // 이름임. 별상관 ㄴ
+    void t10() {
+        assertThat(Calc.run("10 * 10")).isEqualTo(100);
+    }
+
+    @Test
+    @DisplayName("10 + 5 * 2")   // 이름임. 별상관 ㄴ
+    void t11() {
+        assertThat(Calc.run("10 + 5 * 2")).isEqualTo(20);
+    }
+
+    @Test
+    @DisplayName("20 + 10 + 5 * 2")   // 이름임. 별상관 ㄴ
+    void t12() {
+        assertThat(Calc.run("20 + 10 + 5 * 2")).isEqualTo(40);
+    }
 }

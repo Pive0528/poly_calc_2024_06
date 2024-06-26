@@ -11,10 +11,17 @@ public class Calc {
     public static int run(String exp) {
         runCallCount++;
 
-        exp = exp.trim(); // 양 옆의 쓸데없는 공백 제거
+        // 양 옆의 쓸데없는 공백 제거
+        exp = exp.trim();
         // 괄호 제거
         exp = stripOuterBrackets(exp);
 
+        if (isCaseMinusBracket(exp)) {
+            exp = exp.substring(1) + " * -1";
+        }
+
+
+        // 만약 디버그가 발생했을 때
         if (debug) {
             System.out.printf("exp(%d) : %s\n", runCallCount, exp);
         }
@@ -48,6 +55,7 @@ public class Calc {
             return run(newExp);
         }
 
+
         if (needToPlus) {
             exp = exp.replaceAll("- ", "+ -");
 
@@ -74,6 +82,26 @@ public class Calc {
 
         throw new RuntimeException("해석 불가 : 올바른 계산식이 아니야");
     }
+
+    private static boolean isCaseMinusBracket(String exp) {
+        if (exp.startsWith("-(") == false) return false;
+
+        int bracketCount = 0;
+        for (int i = 0; i < exp.length(); i++) {
+            char c = exp.charAt(i);
+            if (c == '(') {
+                bracketCount++;
+            } else if (c == ')') {
+                bracketCount--;
+            }
+            if (bracketCount == 0) {
+                if (exp.length() - 1 == i) return true;
+            }
+        }
+        return true;
+
+    }
+
 
     private static int findSplitPointIndex(String exp) {
         int index = findSplitPointIndexBy(exp, '+');

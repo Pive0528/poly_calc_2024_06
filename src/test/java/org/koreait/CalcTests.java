@@ -107,4 +107,23 @@ public class CalcTests {
     void t17() {
         assertThat(Calc.run("(10 + 20) * 3")).isEqualTo(90);
     }
+
+    @Test
+    @DisplayName("10 + (10 + 5)")   // 이름임. 별상관 ㄴ
+    void t18() {
+        assertThat(Calc.run("10 + (10 + 5)")).isEqualTo(25);
+    }
+
+    @Test
+    @DisplayName("-(10 + 20)")   // 이름임. 별상관 ㄴ
+    void t19() {
+        assertThat(Calc.run("-(10 + 20)")).isEqualTo(-15);
+    }
+
+    @Test
+    @DisplayName("-(8 + 2) * -(7 + 3) +5")   // 이름임. 별상관 ㄴ
+    void t20() {
+        assertThat(Calc.run("-(8 + 2) * -(7 + 3) + 5")).isEqualTo(105);
+    }
+
 }

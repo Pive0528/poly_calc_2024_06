@@ -117,7 +117,7 @@ public class CalcTests {
     @Test
     @DisplayName("-(10 + 20)")   // 이름임. 별상관 ㄴ
     void t19() {
-        assertThat(Calc.run("-(10 + 20)")).isEqualTo(-15);
+        assertThat(Calc.run("-(10 + 20)")).isEqualTo(-30);
     }
 
     @Test
